@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --background-light: #f5f5f5;
+            --background-dark: #1f1f1f;
+            --text-light: #1f1f1f;
+            --text-dark: #ffffff;
+            --box-light: rgba(255, 255, 255, 0.8);
+            --box-dark: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--background-dark);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #333;
+            padding: 8px 16px;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .theme-switcher:hover {
+            background: #555;
+        }
+
+        .theme-icon {
+            font-size: 18px;
+        }
+
+        h1 {
+            margin-top: 60px;
+            font-size: 32px;
+        }
+
+        .mlwc, .Mysocm, .My-Messengers {
+            background: var(--box-dark);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            backdrop-filter: blur(8px);
+            transition: background 0.5s;
+        }
+
+        .myproph {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 15px 0;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+
+        .btn {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .instagram { background-color: #E1306C; }
+        .tiktok { background-color: #000000; }
+        .vk { background-color: #0077FF; }
+        .telegram { background-color: #0088cc; }
+
+        .btn i { margin-right: 8px; }
+
+        .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .light-mode {
+            --background-dark: var(--background-light);
+            --text-dark: var(--text-light);
+            --box-dark: var(--box-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-switcher" onclick="toggleTheme()">
+        <i id="theme-icon" class="fas fa-moon theme-icon"></i>
+        <span id="theme-text">Dark Mode</span>
+    </div>
+
+    <h1>My Little Web Corner 🌍</h1>
+
+    <div class="mlwc">
+        <h2>Information about me 👩‍💻</h2>
+        <img class="myproph" src="Myprofilepho.jpeg" alt="myprofilepho">
+        <h3>
+            <p>Hi there! I'm a curious mind, a dreamer, and a big fan of learning new things.</p>
+            <p>I love coffee ☕, late-night coding 💻, and discovering the magic in everyday life.</p>
+            <p>When I'm not exploring the internet, I enjoy music, movies, and asking way too many questions.</p>
+            <p>This website is my little place on the web — welcome and enjoy the ride! 🌍✨</p>
+        </h3>
+    </div>
+
+    <div class="Mysocm">
+        <h2>My Social Media 🤳</h2>
+        <div><a href="https://instagram.com/akbarjanov_o16" target="_blank" class="btn instagram"><i class="fab fa-instagram"></i>Instagram</a></div>
+        <div><a href="https://tiktok.com/@slfacer0" target="_blank" class="btn tiktok"><i class="fab fa-tiktok"></i>TikTok</a></div>
+        <div><a href="https://vk.com/iahaza" target="_blank" class="btn vk"><i class="fab fa-vk"></i>VK</a></div>
+    </div>
+
+    <div class="My-Messengers">
+        <h2>My Messengers 💬</h2>
+        <div><a href="https://t.me/asertyuhg" target="_blank" class="btn telegram"><i class="fab fa-telegram"></i>Telegram</a></div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            const text = document.getElementById('theme-text');
+
+            body.classList.toggle('light-mode');
+
+            const isLight = body.classList.contains('light-mode');
+            icon.className = isLight ? 'fas fa-sun theme-icon' : 'fas fa-moon theme-icon';
+            text.textContent = isLight ? 'Light Mode' : 'Dark Mode';
+
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        }
+
+        // Load saved theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                document.getElementById('theme-icon').className = 'fas fa-sun theme-icon';
+                document.getElementById('theme-text').textContent = 'Light Mode';
+            }
+        });
+    </script>
+</body>
+</html>

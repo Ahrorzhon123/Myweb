@@ -1,0 +1,90 @@
+:root {
+    --background-light: #f5f5f5;
+    --background-dark: #1f1f1f;
+    --text-light: #1f1f1f;
+    --text-dark: #ffffff;
+    --box-light: rgba(255, 255, 255, 0.8);
+    --box-dark: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--background-dark);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background 0.5s, color 0.5s;
+}
+
+.toggle-theme {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+h1 {
+    margin-top: 60px;
+    font-size: 32px;
+}
+
+.mlwc, .Mysocm, .My-Messengers {
+    background: var(--box-dark);
+    border-radius: 16px;
+    padding: 30px;
+    margin: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    backdrop-filter: blur(8px);
+    transition: background 0.5s;
+}
+
+.myproph {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 15px 0;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
+.btn {
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.instagram { background-color: #E1306C; }
+.tiktok { background-color: #000000; }
+.vk { background-color: #0077FF; }
+
+.btn i { margin-right: 8px; }
+
+.btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.light-mode {
+    --background-dark: var(--background-light);
+    --text-dark: var(--text-light);
+    --box-dark: var(--box-light);
+}
